@@ -2,7 +2,7 @@
 layout: post
 title: "Github Page 한글 마크다운 포스팅 테스트"
 date: 2017-09-27
-excerpt: "A ton of text to test readability."
+excerpt: "첫 포스팅."
 tags: [한글 테스트, 포스팅 테스트, 마크다운, 테스트, Markdown]
 comments: true
 ---
