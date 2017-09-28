@@ -5,7 +5,7 @@ description:        "lenir's github blog. using Moon Theme"
 reading_time:       true
 words_per_minute:   50
 logo:               'assets/img/logo_lenir_avatar.png'
-background:         'assets/img/placeholder-big.jpg'
+background:         'assets/img/placeholder-dots.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             UTF-8
 url:                https://lenir.github.io
@@ -40,7 +40,7 @@ disqus_shortname:   lenir
 email:              1net1@naver.com
 #twitter:            username
 #facebook:           username
-github-url:         https://github.com/lenir
+github-url:         lenir
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #linkedin:          username
 #xing:              username
