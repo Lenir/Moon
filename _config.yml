@@ -1,10 +1,10 @@
 # Site
-title:              Lab
+title:              lenir's Lab
 bio:                'Rookie. live in Korea, Republic of.'
 description:        "lenir's github blog. using Moon Theme"
 reading_time:       true
 words_per_minute:   50
-logo:               'assets/img/logo_lenir_avatar.png'
+logo:               'assets/img/avatar_only_profile_square.png'
 background:         'assets/img/placeholder-dots.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             UTF-8

@@ -31,7 +31,7 @@ comments: true
 
 ### 본문
 
-본문. 아아메 한잔 주세요. 시럽은 **Strong - 빼고** 주세요.
+본문. 아아메 한잔 주세요. 시럽은 **빼고** 주세요.
 
 ![Smithsonian Image](https://phinf.pstatic.net/contact/20170901_99/1504254145852Qma5O_PNG/image.png?type=s160)
 {: .image-right}
