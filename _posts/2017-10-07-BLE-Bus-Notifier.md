@@ -20,7 +20,7 @@ comments: true
 Scenes' transactions is like above. let me write details scene by scenes.
 
 ## Scenes - Detail
- ![Scene0](/assets/img/BLE_Bus_Notifier/Scene0_rangingBeacon.png =300x)
+ ![Scene0](/assets/img/BLE_Bus_Notifier/Scene0_rangingBeacon.png=300x)
  <center><b>Beacon Ranging Scene</b></center>
  First, 'Beacon Ranging Scene'. in this scene, app tries to detect bus' beacons. for find appropriate beacon, we use fixed UUID. if app detects **only one** suitable UUID, app automatically goes to Next Scene. when app finds **More than one** proper UUID, app shows list with Bus Number and its current location.(like above screenshot) I implement bus' number with iBeacon's 'Major' value and bus' location with 'Minor' value.
 
