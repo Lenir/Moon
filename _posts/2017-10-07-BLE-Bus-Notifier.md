@@ -8,10 +8,12 @@ header-mask:  0.7
 catalog:      true
 multilingual: true
 tags:
+- Project
 - BLE
 - Beacon
 - React Native
 - Bus Notifier
+- Mobile App
 - 리액트 네이티브
 
 comments: true

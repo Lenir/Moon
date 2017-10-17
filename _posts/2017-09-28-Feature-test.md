@@ -8,7 +8,7 @@ tag:
 - Feature
 - 테스트
 - Test
-feature: /assets/img/avatar_full.png
+feature: "img/avatar_full.png"
 comments: true
 ---
 
