@@ -1,11 +1,25 @@
 ---
-layout: error
-title: "404 Error!"
-subtitle: "This is not the page you're looking for.."
-permalink: /404
-comments: false
+layout: default
+description: "你来到了没有知识的荒原 :("
+header-img: "img/404-bg.jpg"
+permalink: /404.html
 ---
-<center>There doesn't appear to be anything here. Sorry about that.</center>
-<center>If you've followed a link expecting something to be here, you can <a href="mailto:{{ site.email }}?subject=lenir.github.io%20404%20error">contact me</a>.</center>
-<center>텅 비었습니다!</center>
-<center>혹시 정상적인 접근으로 뜬 에러라면 <a href="mailto:{{ site.email }}?subject=lenir.github.io%20404%20에러">연락</a> 바랍니다.</center>
+
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="site-heading" id="tag-heading">
+					<h1>404</h1>
+					<span class="subheading">{{ page.description }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<script>
+	document.body.classList.add('page-fullscreen');
+</script>
