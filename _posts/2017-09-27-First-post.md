@@ -1,8 +1,10 @@
 ---
-layout: post
-title: "Github Page 한글 마크다운 포스팅 테스트"
-date: 2017-09-27
-excerpt: "첫 포스팅."
+layout:        post
+title:        "Github Page 한글 마크다운 테스트 포스팅"
+date:         2017-09-27
+author :      "Lenir"
+multilingual: false
+catalog:      true
 tag:
 - 한글 테스트
 - 포스팅 테스트
@@ -13,30 +15,35 @@ tag:
 comments: true
 ---
 
-## HTML 제목
+## 개요
 
 쓸데없어 보이지만 나중에 참고할 Markdown 문법들. 한글 테스트 겸용!
 
 # 헤더 1
+본문1
 
 ## 헤더 2
+본문2
 
 ### 헤더 3
+본문3
 
 #### 헤더 4
+본문4
 
 ##### 헤더 5
+본문5
 
 ###### 헤더 6
+본문6
 
 ### 본문
 
-본문. 아아메 한잔 주세요. 시럽은 **빼고** 주세요.
+본문. 이 글씨를 **강조** 해주세요.
 
-![Smithsonian Image](https://phinf.pstatic.net/contact/20170901_99/1504254145852Qma5O_PNG/image.png?type=s160)
-{: .image-right}
+![avatar](/img/avatar_only_profile_square.png){: .image-right}
 
-*Emphasized - 강조*. 블라블라 본문.
+이 글씨 또한 *강조* 해주세요.
 
 
 ### 인용구
