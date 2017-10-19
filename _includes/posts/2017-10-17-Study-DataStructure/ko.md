@@ -85,7 +85,7 @@ undirected Graph의 일종인 트리입니다. undirected Graph이며 Cycle이 �
 
 #### 이진 트리 (Binary Tree)
 ![](/img/dataStructure/binaryTree.png)
-트리중에서도 중요한 트리 중 하나인 바이너리 트리입니다. 트리이면서 자식 노드가 최대 2개인 트리를 바이너리트리라고 합니다. 바이너리 트리는 보통 이진 탐색(Binary Search)를 하기 위한 바이너리 서치 트리의 형태로 사용합니다. 트리만 갖춰져 있다면 O(log n)의 탐색 시간을 가지는 자료구조입니다. 바이너리 트리를 Python으로 다음과 같이 표현할 수 있습니다.
+트리중에서도 중요한 트리 중 하나인 바이너리 트리입니다. 트리이면서 자식 노드가 최대 2개인 트리를 바이너리트리라고 합니다. 바이너리 트리는 보통 이진 탐색(Binary Search)를 하기 위한 바이너리 서치 트리의 형태로 사용합니다. 트리만 갖춰져 있다면 O(\\(log n\\))의 탐색 시간을 가지는 자료구조입니다. 바이너리 트리를 Python으로 다음과 같이 표현할 수 있습니다.
 {% highlight python %}
   class Node:
       def __init__(self, data):
@@ -228,7 +228,7 @@ undirected Graph의 일종인 트리입니다. undirected Graph이며 Cycle이 �
 
 ###### Red-Black 트리
 ![](/img/dataStructure/RBT.png)
-위에서 본 AVL 트리와 비슷하게 자동으로 균형을 맞춰주는 트리입니다. 하지만 이 트리는 노드 삽입/삭제, 탐색이 모두 O(log n)의 시간이 걸립니다. 실제로 많이 쓰이는 트리구조이기도 합니다. B 트리 중 2-3-4 트리와 동치관계입니다.<br>
+위에서 본 AVL 트리와 비슷하게 자동으로 균형을 맞춰주는 트리입니다. 하지만 이 트리는 노드 삽입/삭제, 탐색이 모두 O(\\(log{n}\\))의 시간이 걸립니다. 실제로 많이 쓰이는 트리구조이기도 합니다. B 트리 중 2-3-4 트리와 동치관계입니다.<br>
 레드블랙 트리는 다음과 같은 성질을 가집니다.
 1. 모든 노드는 레드 노드 혹은 블랙 노드이다.
 2. 루트 노드는 블랙 노드이다.
@@ -479,34 +479,6 @@ B-트리 중 B-Tree order of 4로, 레드-블랙 트리의 동치형인 트리�
 
 #### 트라이 (trie)
 ![](/img/dataStructure/trie.png)
-트리 중 문자열 검색 알고리즘 중 가장 유명한 알고리즘인 아호코라식 알고리즘(Aho-Corasick Algorithm)에 사용되는 트라이입니다. 알고리즘에 사용 가능한 문자 갯수(eg. 알파벳만 사용시 26) 만큼의 child를 가질 수 있습니다. 위 그림에서 예를 들어 봅시다. 문서 중 tea를 찾으려고 합니다. 그러면 (root) -t-> (t) -e-> (te) -a-> (tea : 3) 으로, index 3에 tea가 있다는걸 알 수 있습니다. 이렇게 trie는 공간을 매우 많이 잡아먹지만(word case : O(n^l), l은 최장 단어 길이 수)
-
-~~~
-Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering:
-\\[ \frac{1}{n^{2}} \\]
-~~~
-
-Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering:
-\\[ \frac{1}{n^{2}} \\]
-
-The only thing to look out for is the escaping of the backslash when using markdown, so the delimiters become `\\[ ... \\]` and `\\( ... \\)` for inline and block maths respectively.
-
-
-$$
-\begin{align*}
-  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
-  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
-  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
-      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
-      \vdots & \ddots & \vdots \\
-      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
-    \end{array} \right)
-  \left( \begin{array}{c}
-      y_1 \\
-      \vdots \\
-      y_n
-    \end{array} \right)
-\end{align*}
-$$
+트리 중 문자열 검색 알고리즘 중 가장 유명한 알고리즘인 아호코라식 알고리즘(Aho-Corasick Algorithm)에 사용되는 트라이입니다. 알고리즘에 사용 가능한 문자 갯수(eg. 알파벳만 사용시 26) 만큼의 child를 가질 수 있습니다. 위 그림에서 예를 들어 봅시다. 문서 중 tea를 찾으려고 합니다. 그러면 (root) -t-> (t) -e-> (te) -a-> (tea : 3) 으로, index 3에 tea가 있다는걸 알 수 있습니다. 이렇게 trie는 공간을 매우 많이 잡아먹지만(word case : O(\\(n^{l})\\), l은 최장 단어 길이 수)
 
 <br><br>
