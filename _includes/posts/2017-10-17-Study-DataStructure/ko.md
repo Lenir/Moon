@@ -11,7 +11,7 @@
 
   printf(*pointer); // 55
 {% endhighlight %}
- 코드가 문법에 맞는지는 잘 기억이 나질 않네요. <br><br>
+ 코드가 문법에 맞는지는 잘 기억이 나질 않네요*.* <br><br>
 
 ## 링크드 리스트 (Linked List)
 ![](/img/dataStructure/linkedList.png)
@@ -84,7 +84,7 @@ undirected Graph의 일종인 트리입니다. undirected Graph이며 Cycle이 �
 <br><br>
 
 ### 이진 트리 (Binary Tree)
-![]()
+![](/img/dataStructure/binaryTree.png)
 트리중에서도 중요한 트리 중 하나인 바이너리 트리입니다. 트리이면서 자식 노드가 최대 2개인 트리를 바이너리트리라고 합니다. 바이너리 트리는 보통 이진 탐색(Binary Search)를 하기 위한 바이너리 서치 트리의 형태로 사용합니다. 트리만 갖춰져 있다면 O(log n)의 탐색 시간을 가지는 자료구조입니다. 바이너리 트리를 Python으로 다음과 같이 표현할 수 있습니다.
 {% highlight python %}
   class Node:
@@ -120,8 +120,8 @@ undirected Graph의 일종인 트리입니다. undirected Graph이며 Cycle이 �
           self.root = Node(None)
 
       def insert(self, value):
-          if self.value == None:
-              self.value = value
+          if self == None:
+              self = Node(value)
           elif self.value > value:
               self.left.insert(value)
           elif self.value < value:
@@ -140,4 +140,228 @@ undirected Graph의 일종인 트리입니다. undirected Graph이며 Cycle이 �
               return self
 
 {% endhighlight %}
+<br><br>
+
+##### AVL 트리
+![](/img/dataStructure/AVL.png)
+기존 BST는 삽입/삭제를 할 수록 한쪽으로 치우쳐 거의 배열과 비슷한 수준이 되어버리는 경우가 있었습니다. 그래서 나온 것이 자동으로 균형을 맞추는 AVL 트리 입니다. 이 트리는 Python으로 표현하면 다음과 같습니다.
+{% highlight python %}
+  balanceNum = 0
+  class Node:
+      def __init__(self, value):
+          self.value = data
+          self.left = None
+          self.right = None
+
+  class AVL-Tree:
+      def __init__(self):
+          self.root = Node(None)
+
+      def avlInsert(self, value):
+          if self == None:
+              self = Node(value)
+          elif self.value > value:
+              self.left.avlInsert(value)
+              self.balance()
+          elif self.value < value:
+              self.right.avlInsert(value)
+              self.balance()
+          else: # Same value exists
+              print("Cannot insert Same value!")
+
+      def balance(self):
+          global balanceNum
+          balanceNum = self.getBalanceNum()
+          if balanceNum > 1: # viased to Left
+              if self.left.getBalanceNum() > 0: # left child not has right child
+                  self.rotateLL()
+              else: # left child has right child
+                  self.rotateLR()
+          if balanceNum < -1: # viased to Right
+              if self.right.getBalanceNum() <0: # right child not has left child
+                  self.rotateRR()
+              else: # right child has left child
+                  self.rotateRL()
+          return self
+
+      def getBalanceNum(self):
+          global balanceNum
+          if self == None:
+              balanceNum = 0
+          else:
+              return (getBalanceNum(self.left) - getBalanceNum(self.right))
+
+      def rotateLL(self):
+          child = self.left
+          self.left = child.right
+          child.right = self
+          return child
+
+      def rotateRR(self):
+          child = self.right
+          self.right = child.left
+          child.left = self
+          return child
+
+      def rotateRL(self):
+          child = self.right
+          self.right = child.rotateLL()
+          return self.rotateRR()
+
+      def rotateLR(self):
+          child = self.left
+          self.left = child.rotateRR()
+          return self.rotateLL()
+
+      def binarySearch(self, value):
+          if self.value == None:
+              print("Tree is empty")
+          elif self.value > value:
+              self.left.binarySearch(value)
+          elif self.value < value:
+              self.right.binarySearch(value)
+          elif self.value == value:
+              return self
+
+{% endhighlight %}
+코드가 위에서 보던 다른 구조들에 비해 상당히 복잡합니다. 코드에서 보다시피 값을 넣거나 뺄 때 마다 밸런스를 맞춰줍니다. 균형은 매우 잘 맞으나, 노드 삽입/삭제의 속도가 후술할 Red-Black Tree보다 조금 떨어집니다.<br><br>
+
+##### Red-Black 트리
+![](/img/dataStructure/RBT.png)
+위에서 본 AVL 트리와 비슷하게 자동으로 균형을 맞춰주는 트리입니다. 하지만 이 트리는 노드 삽입/삭제, 탐색이 모두 O(log n)의 시간이 걸립니다. 실제로 많이 쓰이는 트리구조이기도 합니다. B 트리 중 2-3-4 트리와 동치관계입니다.<br>
+레드블랙 트리는 다음과 같은 성질을 가집니다.
+1. 모든 노드는 레드 노드 혹은 블랙 노드이다.
+2. 루트 노드는 블랙 노드이다.
+3. 모든 리프 노드(leaf Node)는 블랙 노드이다.
+4. 레드 노드의 자식은 모두 블랙 노드이다.
+5. 특정 노드로부터 리프 노드까지의 블랙 노드의 갯수는 모두 같다.
+AVL트리의 균형이 경로 차가 1이상 나지 않는 정도까지 맞춰준다면, 레드블랙 트리는 가장 짧은 경로와 가장 긴 경로의 차이가 2배 이상 나지 않는 정도로 균형을 맞춰줍니다. 이를 Python으로 표현하면 다음과 같습니다.
+{% highlight python %}
+  class Node:
+      def __init__(self, value):
+          self.value = value
+          self.color = None
+          self.left = None
+          self.right = None
+          self.parent = None
+
+  class RedBlackTree:
+      def __init__(self, value):
+          self.root = Node(data)
+
+      def getGrandpa(self):
+          if self.parent != None:
+              if self.parent.parent != None:
+                  return self.parent.parent
+          else:
+              return None
+
+      def getUncle(self):
+          granpa = self.getGrandpa()
+          if granpa != None:
+              if granpa.left == self.parent:
+                  return granpa.right
+              else:
+                  return granpa.left
+          else:
+              return None
+{% endhighlight %}
+###### RBT - Insert Cases
+삽입은 키 검색 후 새 노드를 해당 자리에 삽입 후 레드 노드로 지정한 후 시작.
+1. 새 노드가 루트 노드일떄 : <br>
+  루트 노드는 블랙 노드. 색 변환.
+2. 블랙 노드의 자식으로서 노드 추가시 : 조건 만족.
+3. 새 노드의 부모와 삼촌 노드가 모두 레드 노드 : <br>
+  부모와 삼촌 노드를 블랙 노드로, 할아버지 노드를 레드 노드로 색 변환. <br>
+  이후 할아버지 노드에 대해 1 ~ 3의 케이스를 다시 적용.
+4. 부모 노드는 레드, 삼촌 노드는 블랙일때:
+   1. 부모 노드가 할아버지 노드의 왼쪽, 새 노드가 부모 노드의 오른쪽 자식일때 :<br>
+    부모 노드-자식 노드에 대해 rotateLeft 한 뒤 케이스 5로 처리
+   2. 부모 노드가 할아버지 노드의 오른쪽, 새 노드가 부모 노드의 왼쪽 자식일때 : <br>
+    부모 노드-자식 노드에 대해 rotateRight 한 뒤 케이스 5로 처리
+5. 부모 노드는 레드, 삼촌 노드는 블랙일떄:
+   1. 새 노드가 왼쪽 자식일때 : <br>
+    할아버지 노드에 대해 rotateRight.
+   2. 새 노드가 오른쪽 자식일때 : <br>
+    할아버지 노드에 대해 rotateLeft.
+{% highlight python %}
+      def insertCase1(self):
+          if self.parent == None:
+              self.color = "BLACK"
+          else:
+              self.insertCase2() # case 2
+
+      def insertCase2(self):
+          if self.parent.color == "BLACK":
+              pass
+          else:
+              self.insertCase3() # case 3
+
+      def insertCase3(self):
+          if self.parent.color == "RED" && self.getUncle().color == "RED":
+              self.parent.color = "BLACK"
+              self.getUncle().color = "BLACK"
+              self.getGrandpa().insertCase1() # recursive case apply!
+          else:
+              self.insertCase4() # case 4
+
+      def insertCase4(self):
+          grandpa = self.getGrandpa()
+          uncle = self.getUncle()
+          if self.parent.color == "RED" && uncle.color == "BLACK":
+              if self.parent.right == self && grandpa.left == self.parent :
+                  self.parent.rotateLeft()
+              elif self.parent.left == self && grandpa.right == self.parent:
+                  self.parent.rotateRight()
+              self.insertCase5() # case 5
+
+      def insertCase5(self):
+          if self.parent.left == self:
+              self.getGrandpa().rotateRight()
+          elif self.parent.right == self:
+              self.getGrandpa().rotateLeft()
+
+
+      def rotateLeft(self):
+          succeeder = self.right
+          parent = self.parent
+          if succeeder.left != None:
+              succeeder.parent = self
+          else: #succeeder.left == None
+              pass
+          self.right = succeeder.left
+          self.parent = succeeder
+          succeeder.left = self
+          succeeder.parent = parent
+
+          if parent != None:
+              if parent.left == self:
+                  parent.left = succeeder
+              else:
+                  parent.right = succeeder
+
+      def rotateRight(self):
+          succeeder = self.left
+          parent = self.parent
+          if succeeder.right != None:
+              succeeder.parent = self
+          else: #succeeder.right == None
+              pass
+          self.left = succeeder.right
+          self.parent = succeeder
+          succeeder.right = self
+          succeeder.parent = parent
+
+          if parent != None:
+              if parent.right == self:
+                  parent.right = succeeder
+              else:
+                  parent.left = succeeder
+
+{% endhighlight %}
+
+
+
+
+
 <br><br>
