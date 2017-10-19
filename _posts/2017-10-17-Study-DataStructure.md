@@ -7,14 +7,18 @@ catalog:      true
 header-img:   "img/dataStructure/header.jpg"
 header-mask:  0.7
 multilingual: false
+mathjax:      true
 tags:
 - Study
 - Data Structure
 - 자료구조
+- 트리
 - Tree
 - Binary Tree
 - Red Black Tree
 - AVL Tree
+- B-Tree
+- 2-3-4 Tree
 
 comments: true
 ---
