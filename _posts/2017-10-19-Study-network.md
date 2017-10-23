@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "[Study] 임시 모듬"
+title:        "[Study] 네트워크"
 date:         2017-10-19
 author :      "Lenir"
 catalog:      true
@@ -9,10 +9,9 @@ multilingual: false
 mathjax:      true
 tags:
 - Study
-- OS
 - Network
-- DB
-- Algorithm
+- OSI 7 Layer
+- TCP
 
 comments: true
 ---
@@ -46,16 +45,7 @@ TCP/IP 세션을 만들고 없애는 레이어.
 연결 지향 프로토콜입니다. 패킷 스위칭 방식을 사용하며 발생하는 문제들을 컨트롤합니다. 3-Way Handshacking을 통해 연결을 설정한 후(SYN - ACK,SYN - ACK) 통신을 하는 것이 특징입니다. 대표적인 역할로는 Flow Control, Congestion Control이 있습니다.
 ##### Flow Control
 ![](/img/network/tcp-sliding-window.jpg)
-수신 측에서 버퍼에 저장할 시간이 필요하기 때문에 송신 측에서는 현재 데이터의 프레임 순서번호, 패리티 코드 등을 같이 보내고, 수신 측에서는 ACK에 받을 프레임 번호를 같이 보내준다. 여기서 사용되는 것이 슬라이딩 윈도우인데, 버퍼 사이즈만큼 윈도우가 옮겨가는 것처럼 보면 될 것이다.
-
-
-### 알고리즘
-
-
-
-
-
-
+수신 측에서 버퍼에 저장할 시간이 필요하기 때문에 송신 측에서는 현재 데이터의 프레임 순서번호, 패리티 코드 등을 같이 보내고, 수신 측에서는 ACK에 받을 프레임 번호를 같이 보내줍니다. 여기서 사용되는 것이 슬라이딩 윈도우인데, 버퍼 사이즈만큼 윈도우가 옮겨가는 것처럼 보면 될 것입니다.
 
 
 
