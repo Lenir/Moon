@@ -36,9 +36,9 @@ SBR의 장점 및 단점에 대해 아래에 간략하게 소개해 보겠습니
 - 로그 파일에 쓰는 데이터가 적음.<br>
  - 특히나 update/delete가 많은 row에 영향을 미친다면, 특히 데이터를 더 적게 사용함<br>
  - 예를 들어, 다음과 같은 SQL 문에서는 하나의 Statement로 많은 row에 영향을 줄 수 있을 겁니다.<br>
- - {% highlight Sql %}
+{% highlight Sql %}
  Update someDB.someTable SET SomeColumn = 'SomeValue' where SomeColumn = 'SomethingElseValue';
- {% endhighlight %}<br>
+{% endhighlight %}
 - 로그 파일에 변경이 일어난 모든 SQL 문이 저장되므로 DB 감사(audit)에 사용 가능함.<br>
 <br>
 #### Cons
