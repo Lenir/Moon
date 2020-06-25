@@ -35,7 +35,7 @@ SBR의 장점 및 단점에 대해 아래에 간략하게 소개해 보겠습니
 - 검증된 기술임('Proven technology')<br>
 - 로그 파일에 쓰는 데이터가 적음.<br>
  - 특히나 update/delete가 많은 row에 영향을 미친다면, 특히 데이터를 더 적게 사용함<br>
- - 예를 들어, 다음과 같은 SQL 문에서는 하나의 Statement로 많은 row에 영향을 줄 수 있을 겁니다.<br>
+ - 예를 들어, 다음과 같은 SQL 문에서는 하나의 Statement로 많은 row에 영향을 줄 수 있을 겁니다.
 {% highlight Sql %}
  Update someDB.someTable SET SomeColumn = 'SomeValue' where SomeColumn = 'SomethingElseValue';
 {% endhighlight %}
@@ -75,7 +75,7 @@ Creates a replication filter using the name of a database.
 {% highlight Sql %}
 use LOG;
 Insert into CONFIG.SOMETABLE (A, B, C) values ('a', 'b', 'c');
-{% endhighlight %}<br>
+{% endhighlight %}
 위의 Insert statement는 cross-database statement이므로 LOG와 CONFIG DB 모두에 replicate 옵션이 걸려 있음에도 불구하고 해당 statement는 복제되지 않을 것입니다.<br>
 정확한 이슈 발생 사유는 DB의 replication 옵션을 확인해야 알 수 있겠지만 현재로서 가장 유력한 원인은 다음과 같을것입니다.<br>
 >Statement-based replication을 사용하며 replicate-do-db 조건을 건 상태에서 cross-database 문을 사용하여 Insert/Update 문이 실행되었음.<br>
