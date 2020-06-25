@@ -78,7 +78,8 @@ Insert into CONFIG.SOMETABLE (A, B, C) values ('a', 'b', 'c');
 {% endhighlight %}<br>
 위의 Insert statement는 cross-database statement이므로 LOG와 CONFIG DB 모두에 replicate 옵션이 걸려 있음에도 불구하고 해당 statement는 복제되지 않을 것입니다.<br>
 정확한 이슈 발생 사유는 DB의 replication 옵션을 확인해야 알 수 있겠지만 현재로서 가장 유력한 원인은 다음과 같을것입니다.<br>
-Statement-based replication을 사용하며 replicate-do-db 조건을 건 상태에서 cross-database 문을 사용하여 Insert/Update 문이 실행되었음.<br>
+>Statement-based replication을 사용하며 replicate-do-db 조건을 건 상태에서 cross-database 문을 사용하여 Insert/Update 문이 실행되었음.<br>
+
 <br>
 ## 이슈 해결
 일단 유력한 이슈 원인을 찾았으니 이에 대한 해결 방안을 생각해봅시다.<br>
